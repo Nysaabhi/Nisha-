@@ -978,7 +978,7 @@ function showPackageInfo(serviceName, packageType) {
         <div class="modal-overlay" onclick="closePackageInfo()">
             <div class="modal-content" onclick="event.stopPropagation()">
                 <div class="modal-header">
-                    <h2>${serviceName} - ${package.title}</h2>
+                    <h2>${package.title}</h2>
                     <button class="close-button" onclick="closePackageInfo()">
                         <i class="fas fa-times"></i>
                     </button>
