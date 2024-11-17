@@ -532,7 +532,7 @@ body > h1:first-of-type:not(.heading) {
     align-items: center;
     gap: 10px;
     padding: 10px;
-    background-color: #000000;
+    background-color: #1a1a1f;
     border-radius: 8px;
 }
 
