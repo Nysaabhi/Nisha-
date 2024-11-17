@@ -312,21 +312,20 @@ body > h1:first-of-type:not(.heading) {
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             padding: 20px;
-            gap: 12px;
         }
 
         .category-card {
-            flex: 0 0 auto;
-    padding: 8px 16px;
-    background: rgba(255, 215, 0, 0.1);
-    border: 1px solid rgba(255, 215, 0, 0.2);
-    border-radius: 12px;
-    cursor: pointer;
-    white-space: nowrap;
-    scroll-snap-align: start;
-    transition: all 0.3s ease;
-    font-size: 0.9em;
-}
+            flex: 0 0 25%;
+            scroll-snap-align: start;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin-right: 15px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
 
         .category-card:hover {
             transform: translateY(-2px);
