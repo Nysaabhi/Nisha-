@@ -406,6 +406,174 @@ body > h1:first-of-type:not(.heading) {
             color: var(--text-light);
         }
 
+        .info-button {
+        background: none;
+        border: none;
+        color: var(--primary-color);
+        cursor: pointer;
+        padding: 0 5px;
+        font-size: 1.1em;
+        transition: color 0.3s ease;
+    }
+    
+    .info-button:hover {
+        color: #ffffff;
+    }
+    
+    /* Add these styles to your CSS */
+
+#packageInfoModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: #1a1a1f;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #fffdfd;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #b1b1b1;
+    padding: 5px;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.package-price-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.price-tag {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.price-duration {
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.package-details-section {
+    margin-bottom: 30px;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.feature-list li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+.feature-list li i {
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #000000;
+    border-radius: 8px;
+}
+
+.benefit-item i {
+    color: #FFD700;
+    font-size: 1.2rem;
+}
+
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.modal-footer .action-button {
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-footer .book-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.modal-footer .call-button {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.modal-footer .action-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
         .booking-form {
             display: none;
             padding: 20px;
@@ -677,74 +845,6 @@ const servicePackages = {
             features: ['Complete plumbing solutions', 'Emergency service', 'Unlimited duration', 'Premium tools', 'Priority support']
         }
     },
-    'Electrical': {
-        silver: {
-            title: 'Basic Electrical',
-            price: '$59',
-            features: ['Basic wiring', 'Outlet repair', '1 Hour service', 'Standard equipment']
-        },
-        gold: {
-            title: 'Advanced Electrical',
-            price: '$119',
-            features: ['Circuit installation', 'Lighting setup', '2 Hour service', 'Professional equipment', '24/7 support']
-        },
-        platinum: {
-            title: 'Premium Electrical',
-            price: '$179',
-            features: ['Complete electrical solutions', 'Emergency service', 'Unlimited duration', 'Premium equipment', 'Priority support']
-        }
-    },
-    'HVAC': {
-        silver: {
-            title: 'Basic HVAC',
-            price: '$69',
-            features: ['Basic maintenance', 'Filter replacement', '1 Hour service', 'Standard diagnosis']
-        },
-        gold: {
-            title: 'Advanced HVAC',
-            price: '$129',
-            features: ['System repairs', 'Performance tuning', '2 Hour service', 'Professional diagnosis', '24/7 support']
-        },
-        platinum: {
-            title: 'Premium HVAC',
-            price: '$199',
-            features: ['Complete HVAC solutions', 'Emergency service', 'Unlimited duration', 'Premium diagnosis', 'Priority support']
-        }
-    },
-    'Landscaping': {
-        silver: {
-            title: 'Basic Landscaping',
-            price: '$45',
-            features: ['Lawn mowing', 'Basic trimming', '1 Hour service', 'Standard tools']
-        },
-        gold: {
-            title: 'Advanced Landscaping',
-            price: '$89',
-            features: ['Garden design', 'Plant care', '2 Hour service', 'Professional tools', 'Seasonal planning']
-        },
-        platinum: {
-            title: 'Premium Landscaping',
-            price: '$159',
-            features: ['Complete landscape design', 'Custom projects', 'Unlimited duration', 'Premium tools', 'Priority scheduling']
-        }
-    },
-    'Cleaning': {
-        silver: {
-            title: 'Basic Cleaning',
-            price: '$39',
-            features: ['Basic housekeeping', 'Dusting', '2 Hour service', 'Standard supplies']
-        },
-        gold: {
-            title: 'Advanced Cleaning',
-            price: '$79',
-            features: ['Deep cleaning', 'Window washing', '4 Hour service', 'Professional supplies', 'Weekly scheduling']
-        },
-        platinum: {
-            title: 'Premium Cleaning',
-            price: '$129',
-            features: ['Complete cleaning solutions', 'Custom cleaning plans', 'Unlimited duration', 'Premium supplies', 'Priority scheduling']
-        }
-    },
     'default': {
         silver: {
             title: 'Silver Package',
@@ -830,7 +930,12 @@ function showServices(categoryId, serviceName) {
         packageCard.innerHTML = `
             <div class="package-header">
                 <div class="package-title">${package.title}</div>
-                <div class="package-price">${package.price}</div>
+                <div class="package-price">
+                    ${package.price}
+                    <button class="info-button" onclick="showPackageInfo('${serviceName}', '${type}')">
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                </div>
             </div>
             <div class="package-features">
                 ${package.features.map(feature => `<div>• ${feature}</div>`).join('')}
@@ -853,6 +958,109 @@ function showServices(categoryId, serviceName) {
     document.getElementById('pageGrid').style.display = 'none';
 }
 
+// Add this to your existing JavaScript code
+
+// Show Package Information Modal
+function showPackageInfo(serviceName, packageType) {
+    const packages = servicePackages[serviceName] || servicePackages['default'];
+    const package = packages[packageType];
+    
+    // Create modal container if it doesn't exist
+    let modalContainer = document.getElementById('packageInfoModal');
+    if (!modalContainer) {
+        modalContainer = document.createElement('div');
+        modalContainer.id = 'packageInfoModal';
+        document.body.appendChild(modalContainer);
+    }
+    
+    // Create modal content
+    modalContainer.innerHTML = `
+        <div class="modal-overlay" onclick="closePackageInfo()">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <h2>${serviceName} - ${package.title}</h2>
+                    <button class="close-button" onclick="closePackageInfo()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="package-price-section">
+                        <div class="price-tag">${package.price}</div>
+                        <div class="price-duration">per service</div>
+                    </div>
+                    
+                    <div class="package-details-section">
+                        <h3>Package Features</h3>
+                        <ul class="feature-list">
+                            ${package.features.map(feature => 
+                                `<li><i class="fas fa-check"></i> ${feature}</li>`
+                            ).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="package-benefits-section">
+                        <h3>Additional Benefits</h3>
+                        <div class="benefits-grid">
+                            ${getBenefitsByPackageType(packageType)}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="action-button book-button" 
+                        onclick="showBookingForm('${serviceName}', '${packageType}'); closePackageInfo();">
+                        Book Now
+                    </button>
+                    <button class="action-button call-button" onclick="initiateCall()">
+                        <i class="fas fa-phone"></i> Call for Inquiry
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    modalContainer.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+// Close Package Information Modal
+function closePackageInfo() {
+    const modalContainer = document.getElementById('packageInfoModal');
+    if (modalContainer) {
+        modalContainer.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+}
+
+// Helper function to get benefits based on package type
+function getBenefitsByPackageType(packageType) {
+    const benefits = {
+        silver: [
+            { icon: 'fa-clock', text: 'Standard Response Time' },
+            { icon: 'fa-tools', text: 'Basic Tools Included' },
+            { icon: 'fa-phone', text: 'Phone Support' }
+        ],
+        gold: [
+            { icon: 'fa-clock', text: 'Priority Response' },
+            { icon: 'fa-tools', text: 'Professional Tools' },
+            { icon: 'fa-headset', text: '24/7 Support' },
+            { icon: 'fa-percent', text: '10% Off Next Booking' }
+        ],
+        platinum: [
+            { icon: 'fa-clock', text: 'VIP Response' },
+            { icon: 'fa-tools', text: 'Premium Tools' },
+            { icon: 'fa-headset', text: 'Dedicated Support' },
+            { icon: 'fa-percent', text: '20% Off Next Booking' },
+            { icon: 'fa-shield-alt', text: 'Extended Warranty' }
+        ]
+    };
+
+    return benefits[packageType].map(benefit => `
+        <div class="benefit-item">
+            <i class="fas ${benefit.icon}"></i>
+            <span>${benefit.text}</span>
+        </div>
+    `).join('');
+}
 // Date and Time Picker Implementation
 function initializeDateTimePickers() {
     flatpickr("#dateInput", {
